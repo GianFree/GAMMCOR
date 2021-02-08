@@ -7,7 +7,7 @@
 CXX=icpc
 CC=icc
 # Turn of messages that hide real errors
-CFLAGS= -Wall -g -O2 -wd981 -wd279 -wd383 -vec-report0 -wd1572 -wd177
+CFLAGS= -Wall -g -O2 -wd981 -wd279 -wd383 -wd1572 -wd177
 CXXFLAGS=$(CFLAGS) -fno-rtti -fno-exceptions
 
 include Makefile.common
