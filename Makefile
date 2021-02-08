@@ -22,9 +22,10 @@ OBJ = $(O)mainp.o $(O)initia.o $(O)dmscf.o $(O)misc.o $(O)optocc.o \
       xcfun_intel/fortran/xcfun_module.o xcfun_intel/fortran/xcfun_autogen.o
 
 FCC = ifort -assume byterecl
-FFLAGS = -mkl -heap-arrays  -O3 -I xcfun_intel/fortran
-LIBS = -L${MKL_LIB} -lmkl_intel_ilp64 -lmkl_sequential -lmkl_core \
--L./xcfun_intel/lib -lxcfun -lopenblas
+#FFLAGS = -mkl -heap-arrays  -O3 -I xcfun_intel/fortran
+FFLAGS = -mkl -heap-arrays  -O2 -g -I xcfun_intel/fortran
+LIBS = -L${MKL_LIB} -L${BLAS_LIB} -lmkl_intel_ilp64 -lmkl_sequential -lmkl_core \
+-L./xcfun_intel/lib -lxcfun 
 
 $(PROG) :  $(OBJ) 
 	$(FCC) $(FFLAGS) -o $(PROG) $(OBJ) $(LIBS)
